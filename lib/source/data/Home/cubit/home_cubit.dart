@@ -60,7 +60,7 @@ class HomeCubit extends Cubit<HomeState> {
           }
         }
       } else {
-        emit(TukarSusuMessage(message: json.toString()));
+        emit(TukarSusuMessage(message: jsonTukarsusu.toString()));
       }
       await Future.delayed(Duration(seconds: 2));
       emit(TukarSusuLoaded(json: [], statusCode: value.statusCode));
