@@ -55,7 +55,12 @@ class HomeCubit extends Cubit<HomeState> {
               jsonTukarsusu[0]['jml_susu_diterima'].toString(),
             );
             emit(TukarSusuLoaded(json: jsonTukarsusu, statusCode: value.statusCode, crID: jsonTukarsusu[0]['crID']));
-          } else {
+          } 
+          else if (jsonTukarsusu[0]['crID'] == 4) {
+            print('Tidak dapat jadwal susu');
+            emit(TukarSusuLoaded(json: jsonTukarsusu, statusCode: value.statusCode, crID: 4));
+          } 
+          else {
             emit(TukarSusuLoaded(json: jsonTukarsusu, statusCode: value.statusCode, crID: jsonTukarsusu[0]['crID']));
           }
         }

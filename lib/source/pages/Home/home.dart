@@ -320,7 +320,11 @@ Widget result(fullname, depart, bagian, susu, crID, msg) {
         padding: const EdgeInsets.all(8.0),
         height: 40,
         decoration: BoxDecoration(
-          color: crID == 1 ? Colors.green[700] : Colors.red[700],
+          color: crID == 1
+              ? Colors.green[700]
+              : crID == 4
+                  ? Colors.amber[600]
+                  : Colors.red[700],
           borderRadius: BorderRadius.circular(8.0),
           boxShadow: [
             BoxShadow(
@@ -332,7 +336,10 @@ Widget result(fullname, depart, bagian, susu, crID, msg) {
           ],
         ),
         alignment: Alignment.center,
-        child: Text(msg.toString(), style: const TextStyle(color: Colors.white)),
+        child: Text(
+          crID != 4 ? msg.toString() : "Maaf, Anda Tidak Mendapatkan Jadwal Susu",
+          style: TextStyle(color: crID == 4 ? Colors.black : Colors.white, fontWeight: FontWeight.w600),
+        ),
       ),
     ],
   );
